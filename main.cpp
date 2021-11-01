@@ -148,7 +148,7 @@ void printAllPaths(vector<pair<int,int>> Graph[],int src,int dest,string path,bo
      -->Agr ye ni kiya to kaafi nodes jo baaki possible raasto mein aa skte the vo bhi block hojanenge!
 ****************IMP POINTS IN THIS QUESTION****************
  -->KTH LARGEST / SMALLEST KI BAAT HO TO PRIORITY QUEUE TO USE KRO!
- 
+ ------>Weak player & strong player strategy!(min heap se bekar player ko nikalte jao or ache player ko dalte jao)
  
  *********************VIMP*********************************
  */
