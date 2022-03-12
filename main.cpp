@@ -276,6 +276,7 @@ void getConnectedComponents(vector<pair<int,int>> Graph[],int src,vector<int> &c
  ->Agr akhiri wale element se source tk ka direct raasta hai to hamiltonian cycle(loop chlakr dekhlo us last soruce pe ki kya original source usme dla hua hai?)
 ************************IMP*******************************
  */
+// Problem link : https://practice.geeksforgeeks.org/problems/hamiltonian-path2522/1#
 void hamiltonianPathAndCycle(vector<pair<int,int>> Graph[],int src,bool visited[],int cnt,int tot_vertices,string psf,int osrc)
 {
     if(cnt==tot_vertices)
@@ -414,6 +415,7 @@ public:
  ->Agr jo queue se abhi nikala hai uska level or visited mein jo us vertex ka level same nhi hai iska mtlb odd length ki cycle bn rhi hai.
 *************************VIMP******************************
  */
+// Problem Link : https://leetcode.com/problems/is-graph-bipartite/
 bool checkbiPartite(vector<pair<int,int>> Graph[],int src,int visited2[])
 {
     queue<Pair_bi> qt;
@@ -518,7 +520,7 @@ class compareTo2
 public:
     bool operator()(Pair_Dij const& p1,Pair_Dij const& p2)
     {
-        return p1.wsf>p2.wsf;
+        return p1.wsf>p2.wsf; // min heap : smaller element ko priority!
     }
 };
 /*
