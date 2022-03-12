@@ -64,7 +64,8 @@
 #include <stack>
 using namespace std;
 /*
- APPROACH:DFS(preOrder traversal)
+ APPROACH:
+ 1.DFS(preOrder traversal)
  -->Ek given destination pe m hu , apne neighbours se pucha kya tumhare paas destination tak jane ka raasta hai kya??
  -->Agr mre ksi bhi neighbour ke paas destination tk jaane ka raasta hai to iska mtlb mre paas bhi fir destination tk jaane ka raasta hoga!
       -> Bs fir return true krte jao!
@@ -75,7 +76,11 @@ using namespace std;
      ->Iss vjh se ek infinite loop chljaega hm isse puchte rhenge or ye hmse puchta rhega.
  -->Ise problem ko solve krne ke liye hi ek visited array li h bool type ki jo ki btaegi ki kon konsi nodes pe se hm ho aaye hai , or jahan dobara nhi jana !
 ****************IMP POINTS IN THIS QUESTION****************
+2.BFS(Level order traversal)
+-->remove , marks* , work , add* strategy use krte chlo
+-->If the removed element from the queue == destination then, return true.
  */
+// Problem link : https://leetcode.com/problems/find-if-path-exists-in-graph/
 bool hasPath(vector<pair<int,int>> Graph[],int src,int dest,bool visited[])
 {
     cout<<src<<" ";
