@@ -359,6 +359,8 @@ void BFS(vector<pair<int,int>> Graph[],int src,bool visited[])
  --> Agr ek element phle se visit ho chuka h ,queue se remove krte time.
  -->To return true krdo! nhi to return false
  -->Ek baar true return hote hi pta chl gya cycle hai to ek varible mein store kralia true , fir use print kra lenge!
+ 
+ **For detecting a cycle in a directed cyclic graph use two visited arrays, one for overall visited nodes and the other one for the current state visited nodes**
  */
 bool checkCyclic(vector<pair<int,int>> Graph[],int src,bool visited[])
 {
@@ -407,12 +409,15 @@ public:
  -->If length of cycle is odd then graph is not bipartite!
  Reason : Odd cycle mein jo extreme point hoga vo dono sets mein aana chahta hai (See by making a graph of pentagon shape)
  Approach:
- ->BFS Approach
+ 1.BFS Approach(This following approch or using color array with only 2 colors)
  ->Visited array int type ki li , Usme starting mein -1 dala
  ->Fir levels dalte rhenge jse jse visit krenge!
  ->Agr ek vertex phle se hi visit ho chuka hai or queue mein dobara aa rha hai --> Making a cycle
  ->Ab cycle odd hai ya even ise check krne ke liye levels bna liye!
  ->Agr jo queue se abhi nikala hai uska level or visited mein jo us vertex ka level same nhi hai iska mtlb odd length ki cycle bn rhi hai.
+ 2.DFS Approach
+   1.Ya to graph ka size nikal lo edge+1 kr rhe hai na hr step mein vo length ke lie hi hai(par.len-node.len)
+   2.Use color array of 2 colors
 *************************VIMP******************************
  */
 // Problem Link : https://leetcode.com/problems/is-graph-bipartite/
