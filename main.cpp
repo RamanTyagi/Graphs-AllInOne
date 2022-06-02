@@ -617,7 +617,93 @@ public:
  -> Using Key array for weights,MST array for checking whether a particular node is in our MST,parent array for storing parents.
  -> there should be n-1 edges in MST , so outer loop will be for edges . In inner loop compare for weights and store in MST.
  -> Use priority queue for optimisation
+ 
+ **********************KRUSKAL'S ALGORITHM**********************
+ 1.sort according to the weight
+ 2.Greedily pick up the next edge
+ 3. Check for their parents
+ 4. If same parent then , continue because cycle bnjaegi nhi to!!!!!
+ 5. Path compression hojaege jb find function call kra dono vertices pe.
+ 6. Unionn call krdo dono vertices pe!!!
+ Question link : https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1
+ ## CODE FOR KRUSKAL'S : 
+ class Pair
+{
+public:
+        int v1;
+        int v2;
+        int weight;
+};
+class Solution
+{
+    static bool comp(Pair const& a,Pair const& b)
+    {
+        return a.weight<b.weight;
+    }
+	public:
+	int find(int x,vector<int>& parent)
+	{
+	    if(x==parent[x])
+	    return x;
+	    return parent[x]=find(parent[x],parent);
+	}
+	void unionn(int x,int y,vector<int>& parent,vector<int>& rank)
+	{
+	    if(rank[x]>rank[y])
+	    {
+	        parent[y]=x;
+	    }
+	    else if(rank[x]<rank[y])
+	    {
+	        parent[x]=y;
+	    }
+	    else if(rank[x]==rank[y])
+	    {
+	        parent[x]=y;
+	        rank[y]++;
+	    }
+	}
+	//Function to find sum of weights of edges of the Minimum Spanning Tree.
+    int spanningTree(int V, vector<vector<int>> adj[])
+    {
+        // code here
+        vector<Pair> Adj_list;
+       for(int i=0;i<V;i++)
+       {
+           for(auto edge:adj[i])
+           {
+               int n = edge[0];
+               int w = edge[1];
+               Pair p;
+               p.v1 = i;
+               p.v2 = n;
+               p.weight = w;
+               Adj_list.push_back(p);
+           }
+       }
+       sort(Adj_list.begin(),Adj_list.end(),comp);
+        vector<int> parent(V,0);
+        vector<int> rank(V,0);
+        for(int i=0;i<V;i++)
+          parent[i]=i;
+          int sum = 0;
+        for(int i=0;i<Adj_list.size();i++)
+        {
+           int a = Adj_list[i].v1;
+           int b = Adj_list[i].v2;
+           int c = Adj_list[i].weight;
+           int u = find(a,parent);
+           int v = find(b,parent);
+           if(u==v)
+            continue;
+            unionn(u,v,parent,rank);
+            sum+=c;
+        }
+        return sum;
+    }
+};
  */
+// PRIM'S KA CODE!!!!
  void MST(vector<pair<int,int>> Graph[],int src,bool visited[])
 {
     priority_queue<Pair_MST,vector<Pair_MST>,compareTo3> pq;
