@@ -19,6 +19,12 @@
  ->Lan wire bichane wale questions ya koi network based questions!
  ->Source se destination jana hai (0 -> 6 )
  *Smallest Rasta btao edges ki terms mein ? USE BFS
+ 
+ #SHORTEST PATH IN DAG APPROACH:
+ 1.FIND TOPO SORT USING DFS
+ 2.DISTANCE ARRAY BNAO
+ 3.STACK SE ELEMENT POP KRTE JAO AUR DISTANCE CHECK KRTE JAO!!!
+ 
  *Smallest Rasta btao weight ki terms mein ? Dijstra's
  *Sari cities mein taar bichana hai , Sari cities bhi cover hojae or taar bhi km lge?
  ---->Question of Minimum spanning trees
@@ -360,7 +366,8 @@ void BFS(vector<pair<int,int>> Graph[],int src,bool visited[])
  -->To return true krdo! nhi to return false
  -->Ek baar true return hote hi pta chl gya cycle hai to ek varible mein store kralia true , fir use print kra lenge!
  
- **For detecting a cycle in a directed cyclic graph use two visited arrays, one for overall visited nodes and the other one for the current state visited nodes**
+ ** DFS : For detecting a cycle in a directed cyclic graph use two visited arrays, one for overall visited nodes and the other one for the current state visited nodes**
+ ** BFS : Using Kahn's alorithm(Topological sort using indegree array)
  */
 bool checkCyclic(vector<pair<int,int>> Graph[],int src,bool visited[])
 {
@@ -597,12 +604,19 @@ public:
  ->Sub graph
  ->Tree(connected Acyclic))
  ->Spanning(All vertices included)
+ -> N vertices and N-1 edges
+ -> Every node reachable from every other node!!!
  Approach:
  *remove -> mark(*) -> work -> add(*)
  Approach:
+ 1.
  ->Priority queue use kri hai jisse hme sbse km weight wala pair mile har baar pop krne pr
  ->Source element ke lie acquiring vertex -1 maanli!
  ->is aq_v ke lie koi kaam nhi krna !
+ 2.
+ -> Using Key array for weights,MST array for checking whether a particular node is in our MST,parent array for storing parents.
+ -> there should be n-1 edges in MST , so outer loop will be for edges . In inner loop compare for weights and store in MST.
+ -> Use priority queue for optimisation
  */
  void MST(vector<pair<int,int>> Graph[],int src,bool visited[])
 {
