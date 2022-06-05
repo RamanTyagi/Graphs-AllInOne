@@ -61,6 +61,50 @@
  *m -> no of edges hai!
  ->fir next m lines mein pair de rkhe honge (u,v) ke
  
+ ************************************************************BRIDGES IN A GRAPH / CUT EDGE ********************************************************************
+ DEF :Bridges are those components in a graph whose removal increases the number of components in the graph.
+ Approach:
+ *DFS*
+1. Take two arrays tins and low along with visited array
+2. Condition for bridge : low[child]>tins[node] { Child baadme aa rha hai to cut kr skte hai!! } 
+Problem link : https://practice.geeksforgeeks.org/problems/bridge-edge-in-graph/1
+************************************************************BRIDGES IN A GRAPH********************************************************************
+
+
+ ************************************************************ARTICULATION POINT IN A GRAPH/CUT VERTEX*********************************************
+ DEF : If removal of a vertex leads to increase in the number of components.
+ Approach:
+ *DFS*
+1. Take two arrays tins and low along with visited array
+2. Condition for bridge : low[child]>=tins[node]&&par!=-1 { Child baadme aa rha hai to cut kr skte hai!! } 
+3. par == -1 wali condition se bhi cut vertex bn skti hai agr uske child individual hai to.
+Problem link : https://practice.geeksforgeeks.org/problems/articulation-point-1/0/
+************************************************************ARTICULATION POINT IN A GRAPH/CUT VERTEX**********************************************
+
+
+ ************************************************************Kosaraju's Algorithm for Strongly Connected Components (SCC)*************************
+ SCC : Are those components in which if you start from any node you can reach every other node.
+ Approach:
+ *DFS*
+1. Sort All nodes in order of finishing time. ( TOPO SORT )
+2. Transpose the Graph. ( Edges Reversed )
+3. DFS according to the finishing time. (Step 1)
+Problem link : https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
+************************************************************Kosaraju's Algorithm for Strongly Connected Components (SCC)**************************
+
+
+************************************************************Bellman Ford Algorithm | Detect Negative Weight Cycle in Graphs*************************
+DEF : This algorithm helps in detecting only the negative cycles.It also doesn't work in case of negative cycles.
+ Approach:
+ *DFS*
+1. Relax all the edges N-1 Times
+ if(dist[u]+wt<dist[v])
+ dist[v] = dist[u]+wt
+2. After relaxing (N-1) times , distance vector collects all the distances that are ultimately the shortest distances.
+3. Now for checking negative cycle, Relax the edges one more time --> If distances decreases then there is a negative weight cyclr.
+Problem link : https://practice.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/0/?fbclid=IwAR2_lL0T84DnciLyzMTQuVTMBOi82nTWNLuXjUgahnrtBgkphKiYk6xcyJU
+************************************************************Bellman Ford Algorithm | Detect Negative Weight Cycle in Graphs**************************
+ 
 #################THEORY : GRAPHS##########################
  */
 
