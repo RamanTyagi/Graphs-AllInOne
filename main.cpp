@@ -67,6 +67,7 @@
  *DFS*
 1. Take two arrays tins and low along with visited array
 2. Condition for bridge : low[child]>tins[node] { Child baadme aa rha hai to cut kr skte hai!! } 
+   -> Iska condition ka mtlb hai ki us node pe khi aur jgh se raasta nhi hai aane ka .....
 Problem link : https://practice.geeksforgeeks.org/problems/bridge-edge-in-graph/1
 ************************************************************BRIDGES IN A GRAPH********************************************************************
 
@@ -88,7 +89,16 @@ Problem link : https://practice.geeksforgeeks.org/problems/articulation-point-1/
  *DFS*
 1. Sort All nodes in order of finishing time. ( TOPO SORT )
 2. Transpose the Graph. ( Edges Reversed )
-3. DFS according to the finishing time. (Step 1)
+// for(int i=0;i<V;i++)
+        {
+            visited[i]=0;
+            for(auto edge:adj[i])
+            {
+                transpose[edge].push_back(i);
+            }
+        }
+//	
+3. DFS according to the finishing time. (Stack collected from step 1)
 Problem link : https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
 ************************************************************Kosaraju's Algorithm for Strongly Connected Components (SCC)**************************
 
