@@ -23,7 +23,7 @@
  #SHORTEST PATH IN DAG APPROACH:
  1.FIND TOPO SORT USING DFS
  2.DISTANCE ARRAY BNAO
- 3.STACK SE ELEMENT POP KRTE JAO AUR DISTANCE CHECK KRTE JAO!!!
+ 3.STACK SE ELEMENT POP KRTE JAO AUR DISTANCE CHECK KRTE JAO USKE CHILDREN KA USING ADJ_LIST !!!
  
  *Smallest Rasta btao weight ki terms mein ? Dijstra's
  *Sari cities mein taar bichana hai , Sari cities bhi cover hojae or taar bhi km lge?
