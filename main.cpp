@@ -68,6 +68,7 @@
 1. Take two arrays tins and low along with visited array
 2. Condition for bridge : low[child]>tins[node] { Child baadme aa rha hai to cut kr skte hai!! } 
    -> Iska condition ka mtlb hai ki us node pe khi aur jgh se raasta nhi hai aane ka .....
+   -> Is mein back edge ka concept lga hai , ki ksi aur node se bhi is particular node pe aa skte hai kya , to low ko update krdenge !!!!
 Problem link : https://practice.geeksforgeeks.org/problems/bridge-edge-in-graph/1
 ************************************************************BRIDGES IN A GRAPH********************************************************************
 
@@ -78,7 +79,8 @@ Problem link : https://practice.geeksforgeeks.org/problems/bridge-edge-in-graph/
  *DFS*
 1. Take two arrays tins and low along with visited array
 2. Condition for bridge : low[child]>=tins[node]&&par!=-1 { Child baadme aa rha hai to cut kr skte hai!! } 
-3. par == -1 wali condition se bhi cut vertex bn skti hai agr uske child individual hai to.
+3. par == -1&&child>1 => Cut vertex bn skti hai ye bhi!!! ( Mtlb ek child ke dfs se dusre child visit nhi hore )
+ // if chid == 1 -> Us parent node ko remove krne ke baad bhi number of components 1 rhege!!!!
 Problem link : https://practice.geeksforgeeks.org/problems/articulation-point-1/0/
 ************************************************************ARTICULATION POINT IN A GRAPH/CUT VERTEX**********************************************
 
@@ -98,21 +100,26 @@ Problem link : https://practice.geeksforgeeks.org/problems/articulation-point-1/
             }
         }
 //	
-3. DFS according to the finishing time. (Stack collected from step 1)
+3. DFS according to the finishing time.{comps++ for every unvisited node} (Stack collected from step 1)
 Problem link : https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
 ************************************************************Kosaraju's Algorithm for Strongly Connected Components (SCC)**************************
 
 
 ************************************************************Bellman Ford Algorithm | Detect Negative Weight Cycle in Graphs*************************
-DEF : This algorithm helps in detecting only the negative cycles.It also doesn't work in case of negative cycles.
+-> Negative Weight Cycle wale mein Dijkstra fs Jaega -> Prority queue mein baar baar minimum distances aate hi rhege !!!!!
+DEF : ->This algorithm helps in detecting the shortest distance when there are negative weights But one condition No negative cycles should be present.
+      -> Neagative cycle hai to use detect bhi krwa dega!!
+      -> Directed graph mein lgta hai ye!
+      ->  Undirected ke case mein 2 edges(Undirected to directed converted) bnani pdengi!
  Approach:
  *DFS*
 1. Relax all the edges N-1 Times
  if(dist[u]+wt<dist[v])
  dist[v] = dist[u]+wt
 2. After relaxing (N-1) times , distance vector collects all the distances that are ultimately the shortest distances.
-3. Now for checking negative cycle, Relax the edges one more time --> If distances decreases then there is a negative weight cyclr.
-Problem link : https://practice.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/0/?fbclid=IwAR2_lL0T84DnciLyzMTQuVTMBOi82nTWNLuXjUgahnrtBgkphKiYk6xcyJU
+3. Now for checking negative cycle, Relax the edges one more time --> If distances decreases then there is a negative weight cycle.
+(Bellman) -> https://practice.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/0/?fbclid=IwAR2_lL0T84DnciLyzMTQuVTMBOi82nTWNLuXjUgahnrtBgkphKiYk6xcyJU
+(Application) -> https://practice.geeksforgeeks.org/problems/negative-weight-cycle3504/1#
 ************************************************************Bellman Ford Algorithm | Detect Negative Weight Cycle in Graphs**************************
  
 #################THEORY : GRAPHS##########################
