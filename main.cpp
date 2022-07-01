@@ -428,6 +428,7 @@ void BFS(vector<pair<int,int>> Graph[],int src,bool visited[])
  -->Ek baar true return hote hi pta chl gya cycle hai to ek varible mein store kralia true , fir use print kra lenge!
  
  ** DFS : For detecting a cycle in a directed cyclic graph use two visited arrays, one for overall visited nodes and the other one for the current state visited nodes**
+ 	  -> Us wale DFS mein agr visited hogyi tb cycle ki baat krna!!!
  ** BFS : Using Kahn's alorithm(Topological sort using indegree array)
  */
 bool checkCyclic(vector<pair<int,int>> Graph[],int src,bool visited[])
